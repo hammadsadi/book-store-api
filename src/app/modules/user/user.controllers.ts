@@ -13,7 +13,7 @@ const userCreate = catchAsync(async (req, res) =>{
     const result = await UserServices.createUser(req.body)
     sendResponse(res, {
         success: true,
-        message: 'Academic Department Created Successful',
+        message: 'User Created Successful',
         data: result,
       });
  })
