@@ -8,5 +8,8 @@ export default {
     DB_URL:process.env.DB_URL,
     NODE_ENV:process.env.NODE_ENV,
     BCRYPT_SOLT_ROUND:process.env.BCRYPT_SOLT_ROUND,
-    JWT_ACCESS_TOKEN:process.env.JWT_ACCESS_TOKEN
+    JWT_ACCESS_TOKEN:process.env.JWT_ACCESS_TOKEN,
+    CLOUD_NAME:process.env.CLOUD_NAME,
+    API_KEY:process.env.API_KEY,
+    API_SECRET:process.env.API_SECRET,
 }
