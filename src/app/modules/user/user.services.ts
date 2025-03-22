@@ -1,7 +1,8 @@
+import config from "../../config"
 import AppError from "../../utils/AppError"
 import { User } from "./user.model"
 import { TUser } from "./user.types"
-
+import jwt from 'jsonwebtoken'
 const createUser = async(payload:TUser)=>{
     if(!payload?.email || !payload?.password || !payload?.userName){
         throw new AppError(400, 'All Fields Are Required!')
@@ -36,7 +37,11 @@ const createUser = async(payload:TUser)=>{
         profileImage:imageUrl
     })
     await user.save()
-    return user
+    const token = jwt.sign({userId:user?._id}, config.JWT_ACCESS_TOKEN as string, {expiresIn:'1d'})
+    return {
+        user,
+        token
+    }
 }
 
 // Get All User From DB
