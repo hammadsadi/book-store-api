@@ -7,8 +7,6 @@ import { UserServices } from "./user.services";
  * @Method POST
  */
 
-
-
 const userCreate = catchAsync(async (req, res) =>{
     const result = await UserServices.createUser(req.body)
     sendResponse(res, {
@@ -18,8 +16,24 @@ const userCreate = catchAsync(async (req, res) =>{
       });
  })
 
+
+ /**
+ * @Desc Get All User
+ * @Method GET
+ */
+
+const getAllUsers = catchAsync(async (req, res) =>{
+    const result = await UserServices.getAllUserFromDB()
+    sendResponse(res, {
+        success: true,
+        message: 'User Retrieved Successful',
+        data: result,
+      });
+ })
+
 export const UserControllers = {
-    userCreate
+    userCreate,
+    getAllUsers
 }
 
 

@@ -39,6 +39,14 @@ const createUser = async(payload:TUser)=>{
     return user
 }
 
+// Get All User From DB
+const getAllUserFromDB = async() =>{
+    const users = await User.find()
+    return users
+}
+
+
 export const UserServices = {
-    createUser
+    createUser,
+    getAllUserFromDB
 }
